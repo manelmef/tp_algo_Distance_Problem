@@ -1,0 +1,41 @@
+#produit cartesien:
+Ce code calcule le produit cartésien entre deux dictionnaires D1 et D2(représentant des vecteurs) en utilisant une boucle pour parcourir les clés communes des deux dictionnaires, multipliant les valeurs correspondantes pour chaque clé commune, puis additionnant ces produits.
+Il utilise la méthode get(mot, 0) pour accéder aux valeurs des dictionnaires, évitant les erreurs en cas de clés manquantes. Sa complexité est O(min(len(D1), len(D2)), ce qui le rend performant.
+
+#similarite cosinus:
+Ce code calcule l'angle en degrés entre deux vecteurs représentés par des dictionnaires D1 et D2 en utilisant la similarité cosinus. Il réalise les étapes suivantes : calcul des normes des vecteurs, calcul de la similarité cosinus, conversion en degrés, et affichage de l'angle. La complexité est principalement linéaire O(n) par rapport au nombre de valeurs dans les dictionnaires.
+
+#Distance euclidienne:
+calcul en itérant sur les clés des dictionnaires et effectuant des opérations pour chaque paire de clés. La complexité est linéaire par rapport au nombre de clés= O(n), où n est le nombre de mots uniques dans les dictionnaires.
+Pour améliorer les performances,on peut utiliser biblio numpy ce qui simplifie le calcul et rend le code plus efficace pour les dictionnaires de grande taille:
+# Créez des listes de valeurs à partir des dictionnaires
+valeurs_d1 = np.array(list(d1.values()))
+valeurs_d2 = np.array(list(d2.values()))
+# Calculez la distance euclidienne en utilisant NumPy
+distance = np.linalg.norm(valeurs_d1 - valeurs_d2)
+
+
+#TF-IDF:
+Ce code mesure la similarité entre deux dictionnaires de texte en utilisant TF-IDF. Il identifie les mots communs, calcule les poids TF-IDF correspondants, puis somme leurs produits pour obtenir la similarité, sa complexite proche de O(min(n1, n2)), où n1 est le nombre de mots dans dict1 et n2 est le nombre de mots dans dict2.
+
+#TF-IDF + distance euclidienne:
+Ce code mesure la similarité entre deux documents en utilisant TF-IDF et la distance euclidienne. Il crée d'abord des vecteurs TF-IDF pour les documents, calcule la distance euclidienne entre ces vecteurs, et affiche la similarité. La complexité est O(V * N), avec V comme taille du vocabulaire et N comme nombre de documents.
+
+#TF-IDF + cosine:
+Ce code calcule la similarité TF-IDF entre deux dictionnaires en convertissant d'abord les dictionnaires en documents textuels, puis en utilisant TfidfVectorizer de scikit-learn pour obtenir les vecteurs TF-IDF, et enfin en calculant la similarité cosinus entre ces vecteurs. sa complexite est O(N * V), où N est le nombre de documents et V est la taille du vocabulaire (le nombre de mots uniques dans les dictionnaires).
+
+#Levenshtein distance:
+Ce code calcule la distance de Levenshtein (édition) entre deux paragraphes en utilisant un tableau à une dimension pour stocker les distances intermédiaires, réduisant ainsi la complexité spatiale. Le résultat est la distance de Levenshtein entre les deux paragraphes.
+Pour réduire la complexité du code, vous pouvez utiliser un tableau à une dimension au lieu d'une matrice pour stocker les distances intermédiaires. Cela réduira la complexité spatiale du code.
+sa complexite est O(len_words2) ou len_words2 est la longueur du deuxième paragraphe
+
+similaire:
+doc1=La POO, ou programmation orientée objet, est un concept fondamental en informatique. Elle repose sur l'encapsulation des données et des méthodes dans des objets, ce qui favorise la modularité du code et la gestion de projets logiciels complexes.
+doc2=La programmation orientée objet (POO) est un paradigme de programmation largement utilisé dans le développement de logiciels. Elle repose sur la création de classes et d'objets, permettant une meilleure organisation du code et la réutilisation de modules.
+
+doc1=La cuisine italienne est renommée pour sa pizza, un plat délicieux garni de fromage, de tomates et d'autres ingrédients savoureux. La pizza est cuite au four jusqu'à ce qu'elle ait une croûte croustillante.
+doc2=La pizza est un plat italien délicieux garni de fromage, de tomates et d'autres ingrédients savoureux. Elle est cuite au four jusqu'à ce que la croûte soit croustillante.
+
+pas similaire:
+doc1=Le chien est un autre animal de compagnie populaire. Les chiens sont connus pour leur loyauté envers leurs propriétaires et leur capacité à être dressés.
+doc2=Le chat est un animal domestique très commun. Les chats sont appréciés pour leur nature indépendante et leur élégance.
